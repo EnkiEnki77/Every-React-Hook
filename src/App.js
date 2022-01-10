@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import UseState from './Pages/UseState'
+import UseRef from './Pages/UseRef'
+import UseMemo from './Pages/UseMemo'
+import UseEffect from './Pages/UseEffect'
+import ContextHook from './Pages/ContextHook'
+import Nav from './Components/Nav'
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        
+        <Router>
+          <Nav/>
+          <Routes>
+            <Route path='/' element={<UseState/>}/>
+            <Route path='/effect' element={<UseEffect/>}/>
+            <Route path='/context' element={<ContextHook/>}/>
+            <Route path='/memo' element={<UseMemo/>}/>
+            <Route path='/ref' element={<UseRef/>}/>
+          </Routes>
+        </Router>
     </div>
+
+    
   );
 }
 
